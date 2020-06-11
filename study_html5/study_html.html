@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- 1. lang 속성
+    - lang 속성은 실제 웹 브라우저가 동작하는데 어떠한 영향도 끼치지 않음
+    - 대신 구글과 같은 검색 엔진이 웹 페이지를 탐색할 때 해당 웹 페이지가 어떠한 언어로 만들어져 있는지 쉽게 인식하게 만듬
+-->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 제목</title>
+</head>
+<body>
+
+    <!-- 2. 이미지 태그 -->
+    <img src="files/dog.jpg" alt="이미지가 없을때 나오는 글자 지정" width="450" height="300">
+    
+    <hr/>
+
+    <!-- 3. 오디오 태그 
+        - preload : 음악을 재생하기 전에 모두 불러올지 지정
+        - autoplay : 음악을 자동 재생할지 지정
+        - loop : 음악을 반복할지 지정
+        - controls : 음악 재생도구를 출력할지 지정
+    -->
+    <audio src="files/Kalimba.mp3" controls autoplay></audio>
+
+    <br>
+
+    <!-- 3-2. 오디오 태그
+        - 웹 브라우저에서 음악 파일을 지원하지 않는 경우 source를 사용
+        - type 속성은 웹 브라우저가 음악 파일을 내려받은 뒤에 재생 가능한 파일인지 확인하므로 트래픽 낭비를 하지 않기 위해 지정 필요
+    -->
+    <audio controls="controls">
+        <source src="files/Kalimba.ogg" type="audio/ogg" />
+    </audio>
+
+    <hr/>
+
+    <!-- 4. 비디오 태그
+        - poster : 비디오 준비 중일 때의 이미지 파일 경로 지정
+        - preload : 비디오를 재생하기 전에 모두 불러올지 지정
+        - autoplay : 비디오를 자동 재생할지 지정
+        - loop : 비디오를 반복할지 지정
+        - controls : 비디오 재생도구를 출력할지 지정
+        - width/height : 너비/높이 지정
+    -->
+    <video src="files/Wildlife.mp4" poster="http://placehold.it/640x360" width="640" height="360" controls></video>
+
+    <br>
+
+    <video poster="http://placehold.it/640x360" width="640" height="360" controls>
+        <source src="files/Wildlife.webm" type="video/webm" />
+    </video>
+
+    <!-- 4-2. video.js 플러그인 
+        - head 태그에 <link href="https://vjs.zencdn.net/{version}/video-js.css" rel="stylesheet" />
+                      <script src="https://vjs.zencdn.net/{version}/video-js.js"></script>
+        - video 속성에 data-setup={} 추가
+    -->
+
+    <hr/>
+
+    <!-- 5. 입력양식 태그 (form&input&label) 
+        - action : 입력 데이터의 전달 위치를 지정
+        - method : 입력 데이터 전달 방식 (post/get)
+    -->
+    <form method="get">
+        <label for="search">input태그설명</label>
+        <input type="text" name="search" /> <br/>
+        <input type="password" name="password" /> <br/>
+        <input type="file" name="file"> <br/>
+        <input type="button">버튼<br/>
+        <input type="checkbox">체크박스<br/>
+        <input type="img">이미지형태생성<br/>
+        <input type="hidden">보이지않음<br/>
+        <input type="radio">라디오버튼<br/>
+        <input type="reset">초기화<br/>
+        <input type="submit" /> <br/>
+
+        <input type="color">색상선택 양식생성<br/>
+        <input type="date">일자선택 양식생성<br/>
+        <input type="datetime">날짜선택 양식생성<br/>
+        <input type="datetime-local">지역날짜 선택 양식생성<br/>
+        <input type="email">이메일 입력 양식생성<br/>
+        <input type="month">월 선택 양식생성<br/>
+        <input type="number">숫자생성 양식생성<br/>
+        <input type="range">범위선택 양식생성<br/>
+        <input type="search">검색어 입력 양식생성<br/>
+        <input type="tel">전화번호 입력 양식생성<br/>
+        <input type="time">시간선택 양식생성<br/>
+        <input type="url">URL 주소입력 양식생성<br/>
+        <input type="week">주 선택 양식생성<br/>
+    </form>
+
+    <hr/>
+
+    <!-- 5-2. 입력양식태그 (form & textarea)
+        - cols/rows : 태그의 너비/높이 지정
+    -->
+    <form>
+        <textarea name="textarea" id="textarea" cols="30" rows="10">
+            태그 안에 미리 글자를 입력하고 싶으면 이곳에 글을 씀
+        </textarea>
+    </form>
+
+    <hr/>
+
+    <!-- 5-3. 입력양식태그 (form & select)
+        - optgroup : 옵션을 그룹화
+        - option : 옵션 생성
+        - multiple : 여러개의 목록을 선택 가능하게 함
+        - 최근 잘 사용하지 않으며 javascript로 만든것을 주로 이용함
+    -->
+    <form>
+        <select name="select" id="select" multiple="multiple">
+            <option value="opt1">김밥</option>
+            <option value="opt2">떡볶이</option>
+            <option value="opt3">순대</option>
+        </select>
+    </form>
+
+    <br/>
+    <form>
+        <select>
+            <optgroup label="분식">
+                <option value="opt1">김밥</option>
+                <option value="opt2">떡볶이</option>
+                <option value="opt3">순대</option>    
+            </optgroup>
+            <optgroup label="양식">
+                <option value="opt4">돈까스</option>
+            </optgroup>
+        </select>
+    </form>
+
+    <hr/>
+
+    <!-- 5-4. 입력양식태그 (fileset 태그와 legend 태그) -->
+    <form>
+        <fieldset>
+            <legend>입력 양식</legend>
+            <table>
+                <tr>
+                    <td><label for="name">이름</label></td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="mail">이메일</label></td>
+                    <td><input type="mail" id="mail"></td>
+                </tr>
+            </table>
+            <input type="submit" />
+        </fieldset>
+    </form>
+
+
+    <!-- 6. 공간 분할 태그 (div, span) 
+        - div : block 형식으로 공간 분할
+        - span : inline 형식으로 공간 분할
+    -->
+
+    <!-- 7. HTML5 시멘틱 구조 태그
+        
+        - 일반적으로 HTML5의 가장 큰 변화를 시멘틱 태그라고 함
+        - 시멘틱(semantic)은 '의미론적인'이라는 의미를 가짐
+        - 시멘틱 웹 : 태그에 의미를 부여해 웹 페이지를 만드는 것
+        - 시멘틱 태그는 div 태그와 같은 기능을 수행하는 태그로 검색 엔진이나 그 이외의 기계적인 동작들이 웹 페이지를 쉽게 이해할 수 있게 하는데 의미가 있음
+
+        - header : 헤더를 의미
+        - nav : 네비게이션을 의미
+        - aside : 사이드에 위치하는 공간을 의미
+        - section : 여러 중심 내용을 감싸는 공간을 의미
+        - article : 글자가 많이 들어가는 부분을 의미
+        - footer : 푸터를 의미
+
+    -->
+
+</body>
+</html>
